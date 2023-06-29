@@ -1,0 +1,68 @@
+import itemManagement as m
+import keyboard as k
+
+k.add_hotkey('enter',m.addStock)
+k.add_hotkey('f5',m.refresh)
+m.screen.config(bg="lightpink")
+m.screen.resizable(False,False)
+
+L_jdl = m.c.tk.Label(m.screen, text="ITEM MANAGEMENT")
+L_jdl.grid(row=0,column=0,columnspan=10,pady=8)
+L_jdl.config(bg='navy',font=('Helvetica-Bold',17),fg='whitesmoke')
+
+L_a = m.c.tk.Label(m.screen, text="")
+L_a.grid(row=1,column=0,pady=3)
+L_a.config(bg='lightpink')
+
+L_barcode = m.c.tk.Label(m.screen,text="BARCODE")
+L_barcodeA = m.c.tk.Label(m.screen,text=":")
+E_barcode = m.c.tk.Entry(m.screen,textvariable=m.barcode)
+L_barcode.grid(row=2,column=0,sticky='w',pady=3)
+L_barcodeA.grid(row=2,column=1)
+E_barcode.grid(row=2,column=2,sticky='we')
+L_barcode.config(font=('Helvetica',12),bg='lightpink')
+L_barcodeA.config(font=('Helvetica',12),bg='lightpink')
+E_barcode.config(font=('Helvetica',12))
+
+L_sup_ID = m.c.tk.Label(m.screen,text="SUPPLIER ID")
+L_sup_IDA = m.c.tk.Label(m.screen,text=":")
+E_sup_ID = m.c.tk.Entry(m.screen,textvariable=m.sup_ID)
+L_sup_ID.grid(row=3,column=0,sticky='w',pady=3)
+L_sup_IDA.grid(row=3,column=1)
+E_sup_ID.grid(row=3,column=2,sticky='we')
+L_sup_ID.config(font=('Helvetica',12),bg='lightpink')
+L_sup_IDA.config(font=('Helvetica',12),bg='lightpink')
+E_sup_ID.config(font=('Helvetica',12))
+
+L_modal_stn = m.c.tk.Label(m.screen,text="HARGA BELI /pcs")
+L_modal_stnA = m.c.tk.Label(m.screen,text="Rp.")
+E_modal_stn = m.c.tk.Entry(m.screen,textvariable=m.modal_stn)
+L_modal_stn.grid(row=4,column=0,sticky='w',pady=3)
+L_modal_stnA.grid(row=4,column=1)
+E_modal_stn.grid(row=4,column=2,sticky='we')
+L_modal_stn.config(font=('Helvetica',12),bg='lightpink')
+L_modal_stnA.config(font=('Helvetica',12),bg='lightpink')
+E_modal_stn.config(font=('Helvetica',12))
+
+L_qty = m.c.tk.Label(m.screen,text="QUANTITY")
+L_qtyA = m.c.tk.Label(m.screen,text=":")
+E_qty = m.c.tk.Entry(m.screen,textvariable=m.qty,state='disabled')
+L_qtyB = m.c.tk.Label(m.screen,text="pcs")
+L_qty.grid(row=5,column=0,sticky='w',pady=3)
+L_qtyA.grid(row=5,column=1)
+E_qty.grid(row=5,column=2,sticky='we')
+L_qtyB.grid(row=5,column=3,sticky='w')
+L_qty.config(font=('Helvetica',12),bg='lightpink')
+L_qtyA.config(font=('Helvetica',12),bg='lightpink')
+E_qty.config(font=('Helvetica',12))
+L_qtyB.config(font=('Helvetica',12),bg='lightpink')
+
+B_addStock = m.c.tk.Button(m.screen, text="ADD STOCK\n[press ENTER]",command=m.addStock)
+B_addStock.grid(row=6,column=0,columnspan=8,rowspan=2,pady=3,sticky='nsew')
+B_addStock.config(bg='darkkhaki',font=('Arial-Bold',12))
+
+B_refresh = m.c.tk.Button(m.screen, text="REFRESH\n[press F5]",command=m.refresh)
+B_refresh.grid(row=8,column=0,columnspan=8,rowspan=2,pady=3,sticky='nsew')
+B_refresh.config(bg='darkkhaki',font=('Arial-Bold',12))
+
+m.screen.mainloop()
